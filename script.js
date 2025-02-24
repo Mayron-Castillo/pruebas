@@ -16,7 +16,51 @@
 
 // console.log(par(4));
 
-// //Filtrar números mayores a 10 Dado un array de números, crea una función de flecha que devuelva un nuevo array solo con los números mayores a 10.
+//Usa un for para imprimir los números del 10 al 1 en orden descendente.
+// for(let i=10; i>0; i--){
+//     console.log(i);
+// }
+
+//Usa un for...in para recorrer un objeto con información de un auto (marca, modelo, año) e imprimir sus claves y valores.
+// const auto = {
+//     marca: 'BMW',
+//     modelo: 'X6',
+//     año: 2025
+// }
+
+// for(let valor in auto){
+//     console.log(valor, auto[valor]);
+// }
+
+//Usa un for...of para recorrer un array de nombres e imprimir cada nombre en mayúsculas.
+// const names = ['Arturo', 'Pedro', 'Andres'];
+
+// for(let name of names){
+//     console.log(name.toUpperCase());
+// }
+
+//Usa un for...of para contar cuántas veces aparece la letra "a" en una palabra.
+// const palabra = 'Holaa mundo';
+// let contador = 0;
+// for(let letra of palabra){
+//     if(letra === 'a'){
+//         contador++;
+//     }
+// }
+// console.log(`se encontraron: ${contador} "a" en ${palabra}`);
+
+//Usa un for...of para recorrer un array de números y mostrar la suma total.
+// const numbers = [1,2,3,4,5];
+// let suma = 0;
+
+// for (let num of numbers) {
+//     suma += num;
+// }
+
+// console.log(suma);
+
+
+//Filtrar números mayores a 10 Dado un array de números, crea una función de flecha que devuelva un nuevo array solo con los números mayores a 10.
 
 // let numeros = [1,5,10,3,12,7,16]; //10,12,16 o 12,16
 
@@ -152,6 +196,29 @@
 // const orden = numeros.sort((a,b)=>a-b);
 
 // console.log(orden);
+
+//Ejercicio con .split(): Dado un array de frases, usa .split() para convertir cada frase en un array de palabras. Luego, imprime el número de palabras en cada frase.
+// const frases = ["El sol brilla", "La luna está llena", "Hoy es un buen día"];
+// // Usa .split() para dividir las frases y contar las palabras
+// for(let frase of frases){
+//     const palabra = frase.split(' ');
+//     console.log(palabra);
+//     console.log(palabra.length);
+// }
+
+// Ejercicio con .join(): Dado un array de números como cadenas (por ejemplo, ["5", "10", "15"]), usa .join() para unirlos en una sola cadena separada por guiones ("-").
+// const numeros = ["5", "10", "15"];
+// // Usa .join() para unir los números con guiones
+// const numerosSeparados = numeros.join('-');
+// console.log(numerosSeparados);
+
+
+//Ejercicio combinado con .split() y .join(): Tienes una cadena que contiene varias palabras separadas por comas. Usa .split() para dividir la cadena 
+// en un array de palabras y luego usa .join() para juntar las palabras en una cadena, pero esta vez separadas por espacios en lugar de comas.
+// const lista = "manzana,plátano,cereza,sandía";
+// // Primero usa .split() y luego usa .join()
+// const listaArray = lista.split(',').join(' ');
+// console.log(listaArray);
 
 //Dado un array de números, crea un nuevo array con los números impares duplicados.
 
@@ -495,7 +562,7 @@
 //         let tiempo = resultado.current.time;
 //         let elevacion = resultado.elevation;
 //         let intervalo = resultado.current_units.time;
-        
+
 //         const anadirLatitud = document.createElement('p');
 //         anadirLatitud.textContent = `La latitud actual es de: ${latitud}`;
 //         lista.appendChild(anadirLatitud);
@@ -516,7 +583,132 @@
 
 // obtenerApi();
 
+//Obtener los titulos de la API y devolver un array con los titulos
+//👉 https://jsonplaceholder.typicode.com/posts
 
+// async function getAllPosts(){
+//     try {
+//         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+//         if(!response.ok){
+//             throw new error('Error al obtener las publicaciones');
+//         }
+
+//         const posts = await response.json();
+//         return posts.map(post => post.title);
+
+//     }catch (error) {
+//         console.error(error);
+//         return [];
+//     }
+// }
+
+// getAllPosts().then(titles => console.log(titles));
+
+// function contador(){
+//     let contador = 16;
+//     const interval = setInterval(()=>{
+//         contador--;
+//         console.log(`Cuenta regresiva: ${contador}`);
+
+//         if(contador === 0){
+//             clearInterval(interval);
+//             console.log('Cuenta regresiva finalizada!');
+            
+//         }
+        
+//     },1000);
+// }
+
+// contador();
+
+//Extrae e imprime el nombre y correo del usuario de la API 'https://jsonplaceholder.typicode.com/users/1' y lo muestre como un objeto.
+// async function getData() {
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+//         if(!response.ok){
+//             throw new Error('Error');
+//         }
+//         const data = await response.json();
+//         return {name: data.name, email: data.email};     
+//     } catch (error) {
+//         console.log(error);
+//     }    
+// }
+// getData().then(res => console.log(res));
+
+// 📌 Objetivo: Encadenar múltiples promesas.
+
+// 🔹 Instrucciones:
+
+// Crea una función que devuelva una promesa que se resuelva con un número aleatorio después de 2 segundos.
+// Luego, encadena una segunda promesa que tome ese número y lo multiplique por 2 después de otros 2 segundos.
+// Finalmente, encadena una tercera promesa que sume 5 al resultado final.
+// Imprime el resultado en la consola.
+
+// function cadenaPromesas(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             const numeroAleatorio = Math.floor(Math.random()*10)+1;
+//             resolve(numeroAleatorio);
+//         },2000)
+//     })
+// }
+// cadenaPromesas()
+//     .then((numero) =>{
+//         console.log(`Numero aleatorio es: ${numero}`);
+//         return numero*2;
+//     })
+//     .then((doble)=>{
+//         console.log(`Multiplicado por dos es: ${doble}`);
+//         return doble+5;
+//     })
+//     .then((resultadoFinal) =>{
+//         console.log(`Sumado a 5 nos da: ${resultadoFinal}`);
+//     })
+//     .catch(error => console.error(error));
+
+//hacer una funcion asincrona que muestre solo los primeros 3 usuarios y su infomacion respectiva
+// async function obtenerDatos(){
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users/');
+//         if(!response.ok){
+//             throw new Error("Hay un error");
+//         }
+//         const data = await response.json();
+//         const tresUsuarios = data.slice(0,3);
+//         console.log(tresUsuarios);
+//     } catch (error) {
+//         console.log(error);
+//     }
+    
+// }
+
+// obtenerDatos();
+
+// Ejercicio, usando promises, async await y setTimeout, en el que si el numero es menor a 5 devuelve error
+// function obtenerNumero() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//         const numero = Math.floor(Math.random() * 10) + 1;
+//         if (numero < 5) {
+//             reject("Número muy bajo, vuelve a intentarlo.");
+//         } else {
+//             resolve(numero);
+//         }
+//         }, 1000);
+//     });
+// }
+
+// async function main() {
+//     try {
+//         const numero = await obtenerNumero();
+//         console.log("Número obtenido:", numero);
+//     } catch (error) {
+//         console.error("Error:", error);
+//     }
+// }
+
+// main();
 
 
 
