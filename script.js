@@ -727,6 +727,265 @@
 // weather();
 
 
+//Crea una clase llamada Persona con las propiedades nombre y edad. También debe tener un método saludar() que imprima un mensaje con el nombre de la persona.
+// class Persona {
+    // constructor(name,age){
+    //     this.name = name;
+    //     this.age = age;
+    // }
+
+    // saludar(){
+    //     console.log(`Hola, mi nombre es ${this.name} y tengo ${this.age} años`);
+    // }
+// }
+
+// const persona1 = new Persona("Juan", 25);
+// persona1.saludar(); 
+
+//Extiende el ejercicio anterior agregando un getter y setter para la propiedad edad, asegurándote de que la edad no sea negativa.
+// class Persona {
+//     constructor(name,age){
+//         this.name = name;
+//         this.age = age;
+//     }
+    
+//     get edad(){
+//         return this.age;
+//     }
+
+//     set edad(age){
+//         if(age > 0){
+//             this.age = age;
+//         }else{
+//             console.log("La edad debe ser mayor a 0");
+//         }
+//     }
+
+//     saludar(){
+//         console.log(`Hola, mi nombre es ${this.name} y tengo ${this.age} años`);
+//     }
+// }
+
+// const persona2 = new Persona("Ana", 30);
+// persona2.edad = -5; 
+// console.log(persona2.edad); 
+
+
+//Crea una clase Estudiante que herede de Persona. Además de nombre y edad, debe tener una propiedad curso y un método estudiar() que imprima un mensaje.
+// class Persona {
+//     constructor(name,age){
+//         this.name = name;
+//         this.age = age;
+//     }
+    
+//     get edad(){
+//         return this.age;
+//     }
+
+//     set edad(age){
+//         if(age > 0){
+//             this.age = age;
+//         }else{
+//             console.log("La edad debe ser mayor a 0");
+//         }
+//     }
+
+//     saludar(){
+//         console.log(`Hola, mi nombre es ${this.name} y tengo ${this.age} años`);
+//     }
+// }
+
+// class Estudiante extends Persona {
+//     constructor(name,age,curso){
+//         super(name,age);
+//         this.curso = curso;
+//     }
+
+//     estudiar(){
+//         console.log("Estoy estudiando JavaScript.");
+//     }
+// }
+
+// const estudiante1 = new Estudiante("Carlos", 20, "JavaScript");
+// estudiante1.saludar(); 
+// estudiante1.estudiar(); 
+
+//Crea una clase Calculadora con un método estático sumar(a, b) que devuelva la suma de dos números.
+// class Calculadora {
+//     sumar(a, b){
+//         return a+b;
+//     }
+// }
+
+// const calc = new Calculadora()
+// console.log(calc.sumar(5, 3));
+
+//Modifica la clase CuentaBancaria para que la propiedad saldo sea privada y solo 
+// pueda modificarse mediante los métodos depositar y retirar.
+
+// class CuentaBancaria {
+//     #saldoDeCuenta;
+
+//     constructor(saldo){
+//         this.#saldoDeCuenta = saldo;
+//     }
+
+//     depositar(cantidadDeposito){
+//         if(cantidadDeposito <= 0){
+//             console.log('Ingresa un monto correcto');
+//             return;
+//         }
+//         this.#saldoDeCuenta = this.#saldoDeCuenta + cantidadDeposito;
+//         console.log(`Has depositado $${cantidadDeposito} y tu saldo actual es de: $${this.#saldoDeCuenta}`);
+        
+//     }
+
+//     retirar(cantidadRetiro){
+//         if(cantidadRetiro <= 0){
+//             console.log('Ingresa un monto correcto a retirar');
+//             return
+//         }
+//         if(cantidadRetiro > this.#saldoDeCuenta){
+//             console.log(`Fondos insuficientes, tu saldo actual es de $${this.#saldoDeCuenta}`);
+//             return;
+//         }
+//         this.#saldoDeCuenta = this.#saldoDeCuenta - cantidadRetiro;
+//         console.log(`La cantidad de dinero retirado es de $${cantidadRetiro} y tu saldo actual es de $${this.#saldoDeCuenta}`);
+//     }
+    
+//     obtenerSaldo(){
+//         return this.#saldoDeCuenta;
+//     }
+// }
+
+// const cuenta = new CuentaBancaria(1000);
+// cuenta.depositar(200);
+// cuenta.retirar(1200);
+// console.log(cuenta.obtenerSaldo());
+
+//🔹 Ejercicio 1: Cambiar contenido de un elemento
+// Crea un botón y un párrafo en HTML. Cuando el usuario haga clic en el botón, cambia el texto del párrafo.
+
+// const parrafo = document.querySelector('.parrafo');
+// const boton = document.querySelector('.boton');
+
+// boton.addEventListener("click", ()=>{
+//     parrafo.textContent = 'mundo';
+// })
+
+//🔹 Ejercicio 2: Cambiar estilos dinámicamente
+// Crea un botón que, al hacer clic, cambie el color de fondo de la página.
+
+// const boton = document.querySelector('.boton');
+
+// boton.addEventListener("click", ()=>{
+//     document.body.style.backgroundColor = 'blue';
+// })
+
+//🔹 Ejercicio 3: Contador de clics
+// Crea un botón y un párrafo que muestre un número. Cada vez que se haga clic en el botón, 
+// el número debe aumentar.
+
+// const parrafo = document.querySelector('.parrafo');
+// const boton = document.querySelector('.boton');
+
+// let contador = 0;
+
+// boton.addEventListener("click", ()=>{
+//     contador++;
+//     parrafo.innerHTML = contador;
+// });
+
+//🔹 Ejercicio 4: Agregar elementos a una lista
+// Crea un campo de entrada (input), un botón y una lista (ul). Cuando el usuario escriba un 
+// texto y haga clic en el botón, agrega un nuevo li a la lista con ese texto.
+
+// const input = document.querySelector(".input");
+// const boton = document.querySelector(".boton");
+// const lista = document.querySelector(".lista");
+
+// boton.addEventListener("click", ()=>{
+//     const agregar = document.createElement('li');
+//     agregar.textContent = input.value;
+//     lista.appendChild(agregar);
+//     input.value = '';
+// })
+
+//🔹 Ejercicio 5: Eliminar elementos de una lista
+// Extiende el ejercicio anterior y agrega un botón de "Eliminar" junto a cada elemento de la lista.
+
+// const input = document.querySelector(".input");
+// const boton = document.querySelector(".boton");
+// const lista = document.querySelector(".lista");
+
+// boton.addEventListener("click", ()=>{
+//     const agregar = document.createElement('li');
+//     const eliminar = document.createElement('button');
+
+//     eliminar.textContent = 'eliminar';
+//     agregar.textContent = input.value;
+//     lista.appendChild(agregar);
+//     agregar.appendChild(eliminar);
+
+//     eliminar.addEventListener("click", ()=>{
+//         agregar.remove();
+//     })
+
+//     input.value = '';
+// })
+
+// 🔹 Ejercicio 6: Modo oscuro y claro
+// Crea un botón que alterne entre "Modo Claro" y "Modo Oscuro", cambiando los estilos de la página.
+
+// const parrafo = document.querySelector(".parrafo");
+// const boton = document.querySelector(".boton");
+
+// boton.addEventListener("click", ()=>{
+//     const cambioFondo = document.body;
+//     cambioFondo.classList.toggle('cambio');
+//     if(cambioFondo.classList.contains('cambio')){
+//         boton.textContent = 'Modo Claro'
+//     } else{
+//         boton.textContent = 'Modo Oscuro'
+//     }
+// });
+
+// 🔹 Ejercicio 7: Validación de formulario
+// Crea un formulario con un campo de correo y un botón de envío. 
+// Muestra un mensaje de error si el campo está vacío o el formato no es válido.
+
+// const input = document.querySelector("#input");
+// const boton = document.querySelector(".boton");
+
+// boton.addEventListener("click", ()=>{
+//     const validacion = input.value;
+//     if(validacion === ''){
+//         alert('el campo está vacío');
+//         return;
+//     }
+//     if(validacion.includes('@gmail') && validacion.includes('.com')){
+//         alert(`El correo es: ${validacion}`);
+//         return;
+//     }
+//     alert('el formato no es válido');
+// })
+
+//🔹 Ejercicio 8: Galería de imágenes dinámica
+// Muestra varias miniaturas de imágenes y cambia la imagen principal al hacer clic en una de ellas.
+// const imagenes = document.querySelector(".image");
+// const listaImagenes = document.querySelectorAll(".img");
+
+// listaImagenes.forEach(img => {
+//     img.addEventListener('click', () => {
+//         const cambioImagen = imagenes.src;
+//         imagenes.src = img.src;
+//         img.src = cambioImagen;
+//     });
+// });
+
+
+
+
 
 
 

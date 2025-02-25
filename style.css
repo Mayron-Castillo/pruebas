@@ -1,0 +1,10 @@
+/* ejercicio 6 */
+.cambio{
+    background-color: black;
+    color: white;
+}
+
+.image, .img{
+    width: 450px;
+    height: 350px;
+}
