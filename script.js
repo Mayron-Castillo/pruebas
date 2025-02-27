@@ -984,10 +984,155 @@
 // });
 
 
+// practicando localStorage
+
+// lst = [{
+//     name:'Mayron',
+//     age: 22
+// }, {
+//     name: 'Andres',
+//     age: 22
+// }];
+
+// localStorage.setItem("list",JSON.stringify(lst));
+
+// lst = JSON.parse(localStorage.getItem("list"));
+
+// lst.forEach(e => {
+//     let elements = document.getElementById("element");
+//     let div = document.createElement("div");
+//     div.textContent = `Nombre: ${e.name}: Edad: ${e.age}`;
+//     elements.appendChild(div);
+// });
 
 
+//Contador de visitas
+// Crea un contador de visitas en el navegador. Al recargar la página, el contador debe aumentar en 1.
+
+// let contador = parseInt(localStorage.getItem('contador')) || 0;
+
+// contador++;
+// localStorage.setItem('contador', contador);
+
+// const parrafo = document.querySelector(".parrafo");
+// parrafo.textContent = `visitas en la página: ${contador}`;
 
 
+//Api que muestra imagenes de perro aleatorias
+// const url = 'https://dog.ceo/api/breeds/image/random';
+
+// async function fetchDogImage() {
+//     try {
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         console.log(data);
+//         document.getElementById("dogImage").src = data.message; 
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// }
+
+// fetchDogImage();
+
+
+//Api que muestra una imagen de la criptomoneda Bitcoin
+// const url = 'https://api.coingecko.com/api/v3/coins/bitcoin';
+
+// async function fetchCryptoData() {
+//     try {
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         console.log(data);
+//         document.querySelector('.parrafo').textContent = data.name;
+//         document.getElementById("bitcoin").src = data.image.large;
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// }
+
+// fetchCryptoData();
+
+//Practicando el meotodo POST
+// const apiUrl = "https://jsonplaceholder.typicode.com/users";
+
+// async function dataPost() {
+//     try {
+//         const response = await fetch(apiUrl, {
+//             method: 'POST',
+//             headers: {
+//                 "Content-Type": "application/json" 
+//             },
+//             body: JSON.stringify({ nombre: "Mayron", email: "Mayron@example.com" })
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`Error ${response.status}: ${response.statusText}`);
+//         }
+
+//         const data = await response.json();
+//         //null incluye todo, '2' espacios de identacion, es para verlo de una forma mas clara
+//         console.log(`Usuario creado: ${JSON.stringify(data, null, 2)}`); 
+
+//     } catch (error) {
+//         console.error(`Error ${error}`);
+//     }
+// }
+
+// dataPost();
+
+//Usando POST, para registrar un usuario
+// const apiUrl = "https://jsonplaceholder.typicode.com/users";
+
+// async function registerUser(name, email, password) {
+//     try {
+//         const response = await fetch(apiUrl, {
+//             method: 'POST',
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({ name, email, password })
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`Error ${response.status}: ${response.statusText}`);
+//         }
+
+//         const data = await response.json();
+//         console.log(`Usuario registrado: ${JSON.stringify(data,null,2)}`);
+//     } catch (error) {
+//         console.error(`Error al registrar usuario: ${error}`);
+//     }
+// }
+
+
+// registerUser("Mayron", "mayron@example.com", "123456");
+
+//Actualizar usuario con un metodo POST
+
+// const UserApi = "https://jsonplaceholder.typicode.com/users";
+
+// async function updateUser(userId, newData) {
+//     try {
+//         const response = await fetch(UserApi, {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({ userId, ...newData })
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`Error ${response.status}: ${response.statusText}`);
+//         }
+
+//         const data = await response.json();
+//         console.log("Usuario actualizado con éxito:", data);
+//     } catch (error) {
+//         console.error("Error al actualizar usuario:", error);
+//     }
+// }
+
+// updateUser(123, { name: "Mayron", email: "mayron.new@example.com" });
 
 
 
