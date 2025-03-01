@@ -1135,6 +1135,79 @@
 // updateUser(123, { name: "Mayron", email: "mayron.new@example.com" });
 
 
+//Comprueba si una palabra se lee igual al revés.
+// function esPalindromo(palabra) {
+//     let invertida = palabra.split("").reverse().join("");
+//     return palabra === invertida;
+// }
+
+// console.log(esPalindromo("reconocer")); // true
+// console.log(esPalindromo("hola")); // false
+
+// // Encuentra el número más grande en un array de números.
+// function numeroMayor(array) {
+//     let max = array[0];
+//     for (let num of array) {
+//         if (num > max) max = num;
+//     }
+//     return max;
+// }
+
+// console.log(numeroMayor([3, 8, 2, 10, 5]));
+
+// //Calcula el factorial de un número n.
+
+// function factorial(n) {
+//     let resultado = 1;
+//     for (let i = 1; i <= n; i++) {
+//         resultado *= i;
+//     }
+//     return resultado;
+// }
+// console.log(factorial(5));
+
+// // Imprime números del 1 al 100 con reglas de FizzBuzz.
+
+// function fizzBuzz() {
+//     for (let i = 1; i <= 100; i++) {
+//         if (i % 3 === 0 && i % 5 === 0) console.log("FizzBuzz");
+//         else if (i % 3 === 0) console.log("Fizz");
+//         else if (i % 5 === 0) console.log("Buzz");
+//         else console.log(i);
+//     }
+// }
+
+// fizzBuzz();
+
+// //Cuenta cuántas veces aparece cada número en un array.
+// function contarRepetidos(arr) {
+//     let contador = {};
+//     for (let num of arr) {
+//         contador[num] = (contador[num] || 0) + 1;
+//     }
+//     return contador;
+// }
+
+// console.log(contarRepetidos([1, 2, 2, 3, 3, 3, 4])); 
+
+// // Elimina los valores duplicados de un array.
+// function eliminarDuplicados(arr) {
+//     return arr.filter((item, index) => arr.indexOf(item) === index);
+// }
+// console.log(eliminarDuplicados([1, 2, 2, 3, 4, 4, 5]));
+
+// // Genera los primeros N números de Fibonacci.
+// function fibonacci(n) {
+//     let fib = [0, 1];
+//     for (let i = 2; i < n; i++) {
+//         fib.push(fib[i - 1] + fib[i - 2]);
+//     }
+//     return fib.slice(0, n);
+// }
+
+// console.log(fibonacci(6));
+
+
 
 
 
